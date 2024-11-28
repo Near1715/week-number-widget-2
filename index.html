@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Week Number</title>
+</head>
+<body>
+    <h1>Current Week Number: <span id="weekNumber"></span></h1>
+
+    <script>
+        // Function to calculate the current week number
+        function getWeekNumber(date) {
+            var startDate = new Date(date.getFullYear(), 0, 1); // January 1st of the year
+            var days = Math.floor((date - startDate) / (24 * 60 * 60 * 1000)); // Difference in days
+            return Math.ceil((days + 1) / 7); // Return the week number
+        }
+
+        var today = new Date(); // Get the current date
+        var weekNumber = getWeekNumber(today); // Get the week number
+
+        // Display the week number in the page
+        document.getElementById("weekNumber").textContent = weekNumber;
+    </script>
+</body>
+</html>
